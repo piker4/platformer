@@ -65,4 +65,16 @@ public class CharacterMovement : MonoBehaviour
         localVel = transform.InverseTransformDirection(_rigidbody.velocity);
         _animations.IsMoving = _isMoving;
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "hitzone")
+        {
+            Destroy(collision.gameObject);
+        }
+        if(collision.gameObject.tag == "enemy")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
